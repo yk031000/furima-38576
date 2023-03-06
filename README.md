@@ -31,7 +31,7 @@ Things you may want to cover:
 | ------------------ | ----------- | ------------------------- |
 | nickname           | string      | null: false               | 
 | email              | string      | null: false, unique: true |
-| encrypted_password | integer     | null: false               |
+| encrypted_password | string      | null: false               |
 | birthday           | date        | null: false               |
 | last_name          | string      | null: false               |
 | first_name         | string      | null: false               |
@@ -56,28 +56,27 @@ Things you may want to cover:
 | delivery_charge_id | integer     | null: false                    |
 | ship_region_id     | integer     | null: false                    |
 | ship_date_id       | integer     | null: false                    |
-| price_id           | integer     | null: false                    |
-| user               | references  | null: false, foreign_key: true |
+| price              | integer     | null: false                    |
+
 
 ### Association
 
 - has_one :record
 - belongs_to :user
 
-## record テーブル
+## records テーブル
 
 | Column     | Type        | Options                        |
 | ---------- | ----------- | ------------------------------ |
 | user       | references  | null: false, foreign_key: true |
 | item       | references  | null: false, foreign_key: true |
-| customer   | references  | null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :customer
 
 ## customers テーブル
 

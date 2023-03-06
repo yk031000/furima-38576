@@ -54,7 +54,7 @@ Things you may want to cover:
 | status_id          | integer     | null: false                    |
 | category_id        | integer     | null: false                    |
 | delivery_charge_id | integer     | null: false                    |
-| ship_region_id     | integer     | null: false                    |
+| prefecture_id      | integer     | null: false                    |
 | ship_date_id       | integer     | null: false                    |
 | price              | integer     | null: false                    |
 
@@ -83,7 +83,7 @@ Things you may want to cover:
 | Column     | Type       | Options                       |
 | ---------- | ---------- | ----------------------------- |
 | postcode   | string     | null:false                    |
-| region     | string     | null:false                    |
+| prefecture | string     | null:false                    |
 | city       | string     | null:false                    |
 | address    | string     | null:false                    |
 | building   | string     |                               |

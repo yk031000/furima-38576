@@ -57,11 +57,11 @@ Things you may want to cover:
 | prefecture_id      | integer     | null: false                    |
 | ship_date_id       | integer     | null: false                    |
 | price              | integer     | null: false                    |
-
+| user               | references  | null: false,foreign_key: true  |
 
 ### Association
 
-- has_one :record
+- has_one :record 
 - belongs_to :user
 
 ## records テーブル
@@ -80,15 +80,15 @@ Things you may want to cover:
 
 ## customers テーブル
 
-| Column     | Type       | Options                       |
-| ---------- | ---------- | ----------------------------- |
-| postcode   | string     | null:false                    |
-| prefecture | string     | null:false                    |
-| city       | string     | null:false                    |
-| address    | string     | null:false                    |
-| building   | string     |                               |
-| telephone  | string     | null:false                    |
-| record     | references | null:false, foreign_key: true |
+| Column        | Type       | Options                       |
+| ------------- | ---------- | ----------------------------- |
+| postcode      | string     | null:false                    |
+| prefecture_id | string     | null:false                    |
+| city          | string     | null:false                    |
+| address       | string     | null:false                    |
+| building      | string     |                               |
+| telephone     | string     | null:false                    |
+| record        | references | null:false, foreign_key: true |
 
 
 ### Association

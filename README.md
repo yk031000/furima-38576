@@ -31,56 +31,65 @@ Things you may want to cover:
 | ------------------ | ----------- | ------------------------- |
 | nickname           | string      | null: false               | 
 | email              | string      | null: false, unique: true |
-| encrypted_password | string      | null: false               | 
+| encrypted_password | integer     | null: false               |
+| birthday           | date        | null: false               |
+| last_name          | string      | null: false               |
+| first_name         | string      | null: false               |
+| last_name_kana     | string      | null: false               |
+| first_name_kana    | string      | null: false               |
+
 
 ### Association
 
 - has_many :items
-- has_many :record
+- has_many :records
 
 
 ## items テーブル
 
-| Column    | Type        | Options           |
-| --------- | ----------- | ----------------- |
-| image     | string      | null: false       |
-| name      | string      | null: false       |
-| text      | text        | null: false       |
-| state     | text        | null: false       |
-| category  | string      | null: false       |
-| price     | integer     | null: false       |
-| users_id  | references  | foreign_key: true |
+| Column             | Type        | Options                        |
+| --------------     | ----------- | ------------------------------ |
+| name               | string      | null: false                    |
+| text               | text        | null: false                    |
+| status_id          | integer     | null: false                    |
+| category_id        | integer     | null: false                    |
+| delivery_charge_id | integer     | null: false                    |
+| ship_region_id     | integer     | null: false                    |
+| ship_date_id       | integer     | null: false                    |
+| price_id           | integer     | null: false                    |
+| user               | references  | null: false, foreign_key: true |
 
 ### Association
 
 - has_one :record
-- belongs_to :users
+- belongs_to :user
 
 ## record テーブル
 
-| Column     | Type        | Options           |
-| ---------- | ----------- | ----------------- |
-| user_id    | references  | foreign_key: true |
-| items_id   | references  | foreign_key: true |
+| Column     | Type        | Options                        |
+| ---------- | ----------- | ------------------------------ |
+| user       | references  | null: false, foreign_key: true |
+| item       | references  | null: false, foreign_key: true |
+| customer   | references  | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - belongs_to :item
 - has_one :address
 
 ## customers テーブル
 
-| Column     | Type       | Options           |
-| ---------- | ---------- | ----------------- |
-| postcode   | integer    | null:false        |
-| region     | string     | null:false        |
-| city       | string     | null:false        |
-| address    | integer    | null:false        |
-| building   | string     |                   |
-| telephone  | integer    | null:false        |
-| record_id  | references | foreign_key: true |
+| Column     | Type       | Options                       |
+| ---------- | ---------- | ----------------------------- |
+| postcode   | string     | null:false                    |
+| region     | string     | null:false                    |
+| city       | string     | null:false                    |
+| address    | string     | null:false                    |
+| building   | string     |                               |
+| telephone  | string     | null:false                    |
+| record     | references | null:false, foreign_key: true |
 
 
 ### Association
